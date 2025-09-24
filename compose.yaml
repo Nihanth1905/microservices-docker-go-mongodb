@@ -60,17 +60,17 @@ services:
     command:
       - "-mongoURI"
       - "mongodb://db:27017/"
-    #   - "-enableCredentials"
-    #   - "true"
-    # environment:
-    #   MONGODB_USERNAME: "demo"
-    #   MONGODB_PASSWORD: "e3LBVTPdlzxYbxt9"
+      - "-enableCredentials"
+      - "true"
+    environment:
+      MONGODB_USERNAME: "demo"
+      MONGODB_PASSWORD: "e3LBVTPdlzxYbxt9"
     labels: {}
       # Enable public access
-      # - "traefik.http.routers.movies.rule=PathPrefix(`/api/movies/`)"
-      # - "traefik.http.services.movies.loadbalancer.server.port=4000"
+       - "traefik.http.routers.movies.rule=PathPrefix(`/api/movies/`)"
+       - "traefik.http.services.movies.loadbalancer.server.port=4000"
       # Apply middlewares
-      # - "traefik.http.routers.movies.middlewares=my-header,my-compress"
+       - "traefik.http.routers.movies.middlewares=my-header,my-compress"
 
   bookings:
     # build: ./bookings
